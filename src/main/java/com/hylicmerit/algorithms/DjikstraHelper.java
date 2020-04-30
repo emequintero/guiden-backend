@@ -12,7 +12,7 @@ public class DjikstraHelper {
 	private static List<Node> visitedNodesInOrder = null;
 
 	public static List<Node> djikstra(int rows, int columns, 
-			int[] start, int[] end) {
+			int[] start, int[] end, int[][] walls) {
 		//declare start and end nodes
 		Node startNode = null, endNode = null;
 		//unvisited nodes compared by distance (compare method in node class)
@@ -25,6 +25,8 @@ public class DjikstraHelper {
 				Node current = new Node(row, col);
 				//add to graph
 				graph[row][col] = current;
+				//check if node is a wall
+				if(checkIfWall(walls, current)) current.setWall(true);
 				//add to unvisited nodes list
 				unvisitedNodes.add(current);
 				if(row == start[0] && col == start[1]) {
@@ -49,7 +51,9 @@ public class DjikstraHelper {
 			//get closest node and remove from list
 			Node closest = unvisitedNodes.remove(0);
 			//skip walls
+			if(closest.isWall()) continue;
 			//stop traversing if trapped (closest node is at a distance of max int)
+			if(closest.getDistance() == Integer.MAX_VALUE) return visitedNodesInOrder;
 			//set closest node as visited
 			closest.setVisited(true);
 			//add to visited nodes in order list
@@ -109,6 +113,15 @@ public class DjikstraHelper {
 			node = prevNode;
 		}
 		return shortestPathAnimations;
+	}
+	
+	private static boolean checkIfWall(int[][] walls, Node current) {
+		for(int i = 0; i < walls.length; i++) {
+			if(current.getRow() == walls[i][0] && current.getColumn() == walls[i][1]) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 }
