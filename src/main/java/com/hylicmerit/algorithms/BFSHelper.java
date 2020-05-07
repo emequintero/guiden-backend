@@ -1,17 +1,18 @@
 package com.hylicmerit.algorithms;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Stack;
+import java.util.Queue;
 
 import com.hylicmerit.models.Node;
 
-public class DFSHelper {
+public class BFSHelper {
 	private static List<Node> visitedNodesInOrder = null;
 	private static Node[][] graph = null;
 
-	public static List<Node> dfs(int rows, int columns, int[] start, int[] end, int[][] walls) {
+	public static List<Node> bfs(int rows, int columns, int[] start, int[] end, int[][] walls) {
 		visitedNodesInOrder = new ArrayList<Node>();
 		// declare start and end nodes
 		Node startNode = null, endNode = null;
@@ -39,22 +40,20 @@ public class DFSHelper {
 				}
 			}
 		}
-		// stack to keep track of neighbors that haven't been visited
-		Stack<Node> unvisitedNodes = new Stack<Node>();
-		Node current = startNode;
-		// begin at start node
-		unvisitedNodes.push(startNode);
-		while (!unvisitedNodes.isEmpty()) {
-			current = unvisitedNodes.pop();
-			current.setVisited(true);
+
+		Queue<Node> queue = new ArrayDeque<>();
+		queue.add(startNode);
+
+		while (!queue.isEmpty()) {
+			Node current = queue.remove();
 			if(current.isWall()) continue;
 			visitedNodesInOrder.add(current);
-			for (Node neighbor : getUnvisitedNeighbors(current)) {
-				if (neighbor.getRow() == end[0] && neighbor.getColumn() == end[1]) {
-					return visitedNodesInOrder;
-				} else {
-					unvisitedNodes.push(neighbor);
-				}
+			if (current.getRow() == end[0] && current.getColumn() == end[1]) {
+				return visitedNodesInOrder;
+			} else {
+				current.setVisited(true);
+				queue.addAll(getUnvisitedNeighbors(current));
+				queue.removeAll(visitedNodesInOrder);
 			}
 		}
 		return visitedNodesInOrder;
@@ -111,4 +110,5 @@ public class DFSHelper {
 		}
 		return shortestPathAnimations;
 	}
+
 }

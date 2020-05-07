@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.hylicmerit.algorithms.BFSHelper;
 import com.hylicmerit.algorithms.DFSHelper;
 import com.hylicmerit.algorithms.DjikstraHelper;
 import com.hylicmerit.models.AlgorithmInput;
@@ -45,6 +46,21 @@ public class AlgorithmController {
 				input.getStart(), input.getEnd(),
 				input.getWalls());
 		List<Node> shortestPath = DFSHelper.getShortestPathAnimation();
+		return ResponseEntity.ok().body(
+				"{\"visitedNodesInOrder\" : " 
+						+ mapper.writeValueAsString(visitedNodesInOrder) + "," +
+				"\"path\" : " 
+						+ mapper.writeValueAsString(shortestPath) + "}");
+	}
+	
+	@PostMapping("/bfs")
+	public ResponseEntity<String> breadthFirstSearch(@RequestBody AlgorithmInput input)
+			throws JsonProcessingException {
+		List<Node> visitedNodesInOrder = BFSHelper.bfs(
+				input.getRows(), input.getColumns(), 
+				input.getStart(), input.getEnd(),
+				input.getWalls());
+		List<Node> shortestPath = BFSHelper.getShortestPathAnimation();
 		return ResponseEntity.ok().body(
 				"{\"visitedNodesInOrder\" : " 
 						+ mapper.writeValueAsString(visitedNodesInOrder) + "," +
