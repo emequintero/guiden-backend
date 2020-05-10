@@ -1,6 +1,10 @@
 C:\Users\Ed\Documents\Code\Java\Guiden\guiden-backend\src\main\java\com\hylicmerit\controllers\HomeController.java
+C:\Users\Ed\Documents\Code\Java\Guiden\guiden-backend\src\main\java\com\hylicmerit\algorithms\DFSHelper.java
 C:\Users\Ed\Documents\Code\Java\Guiden\guiden-backend\src\main\java\com\hylicmerit\models\Node.java
+C:\Users\Ed\Documents\Code\Java\Guiden\guiden-backend\src\main\java\com\hylicmerit\algorithms\AStarHelper.java
+C:\Users\Ed\Documents\Code\Java\Guiden\guiden-backend\src\main\java\com\hylicmerit\algorithms\BFSHelper.java
 C:\Users\Ed\Documents\Code\Java\Guiden\guiden-backend\src\main\java\com\hylicmerit\controllers\AlgorithmController.java
 C:\Users\Ed\Documents\Code\Java\Guiden\guiden-backend\src\main\java\com\hylicmerit\models\AlgorithmInput.java
+C:\Users\Ed\Documents\Code\Java\Guiden\guiden-backend\src\main\java\com\hylicmerit\algorithms\BestFirstSearchHelper.java
 C:\Users\Ed\Documents\Code\Java\Guiden\guiden-backend\src\main\java\com\hylicmerit\algorithms\DjikstraHelper.java
 C:\Users\Ed\Documents\Code\Java\Guiden\guiden-backend\src\main\java\com\hylicmerit\Application.java

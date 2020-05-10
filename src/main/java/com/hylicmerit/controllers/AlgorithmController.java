@@ -40,7 +40,7 @@ public class AlgorithmController {
 						+ mapper.writeValueAsString(shortestPath) + "}");
 	}
 	
-	@PostMapping("/astar")
+	@PostMapping("/a*")
 	public ResponseEntity<String> aStar(@RequestBody AlgorithmInput input)
 			throws JsonProcessingException {
 		List<Node> visitedNodesInOrder = AStarHelper.aStar(
