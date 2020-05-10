@@ -5,6 +5,8 @@
 
 > A pathfinding algorithm visualizer with interactive features.
 
+### 🏠 [Homepage](http://guiden.s3-website.us-east-2.amazonaws.com/)
+
 ## Install
 
 ```sh
@@ -27,8 +29,9 @@ npm run test
 
 👤 **M. Milagro Quintero**
 
-* Website: www.matthiasquintero.com
+* Website: https://matthiasquintero.com/
 * Github: [@matthiasquintero](https://github.com/matthiasquintero)
+* LinkedIn: [@https:\/\/www.linkedin.com\/in\/matthias-quintero-bb652b122](https://linkedin.com/in/https:\/\/www.linkedin.com\/in\/matthias-quintero-bb652b122)
 
 ## Show your support
 
