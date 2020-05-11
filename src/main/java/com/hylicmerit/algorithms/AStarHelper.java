@@ -74,7 +74,7 @@ public class AStarHelper {
 			//set new distance based on where it is from end node
 			int x = (int) Math.pow(endNode.getColumn() - node.getColumn(), 2.0);
 			int y = (int) Math.pow(endNode.getColumn() - node.getColumn(), 2.0);
-			neighbor.setDistance(x+1);
+			neighbor.setDistance(x+y);
 			//set neighbor's previous node
 			neighbor.setPreviousNode(node);
 		}
