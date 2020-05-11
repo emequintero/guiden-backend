@@ -19,12 +19,6 @@ docker pull hylicmerit/guiden
 docker run -p 9090:9090 hylicmerit/guiden
 ```
 
-## Run tests
-
-```sh
-npm run test
-```
-
 ## Author
 
 👤 **M. Milagro Quintero**
